@@ -34,6 +34,8 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 float ColorLerp = 1.0f;
+bool showTexture = false;
+bool togglePressed;
 
 int main()
 {
@@ -88,7 +90,10 @@ int main()
    //Model ourModel(FileSystem::getPath("data/cyborg/cyborg.obj"));
     //Model ourModel(FileSystem::getPath("data/nanosuit/nanosuit.obj"));
     //Model ourModel(FileSystem::getPath("data/planet/planet.obj"));
-     Model ourModel(FileSystem::getPath("data/Panda/Panda.obj"));
+    // Model ourModel(FileSystem::getPath("data/Esquilo/Esquilo.obj"));
+     Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
+   // Model ourModel(FileSystem::getPath("data/ConchaClean/ConchaClean.obj"));
+
 
     
     // draw in wireframe
@@ -103,10 +108,12 @@ int main()
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
-
+        
+        
         // input
         // -----
         processInput(window);
+  
 
         // render
         // ------
@@ -130,6 +137,14 @@ int main()
         glm::vec4 color = glm::vec4(glm::vec3(0.8f, 0.8f, 0.8f),1.0f);
         ourShader.setVec4("matColor", color);
         ourShader.setFloat("lerpIntensity", ColorLerp);
+
+        //ourShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+        ourShader.setVec4("lightColor", 1.0f, 1.0f, 1.0f, 1.0f);
+        
+        glm::vec3 lightPos(-1.0f, -2.75f, 0.0f);
+
+        ourShader.setVec3("lightPos", lightPos);
+
         ourModel.Draw(ourShader);
 
 
@@ -149,7 +164,12 @@ int main()
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window)
 {
-    static bool gWireframe = 0;     
+
+    static bool gWireframe = 0; 
+
+    if (showTexture) ColorLerp = 1.0f;
+    else ColorLerp = 0.0f;
+
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
     if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
@@ -157,15 +177,12 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)   
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
        
-    if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS) {
-        if (ColorLerp <= 0.0f) {
-            ColorLerp = 1.0f;
-        }
-        else {
-            ColorLerp = 0.0f;
-        }
+    if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS && !togglePressed) {
+        showTexture = !showTexture;
+        togglePressed = true;
     }
-
+    if(glfwGetKey(window, GLFW_KEY_M) == GLFW_RELEASE) togglePressed = false;
+    
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         camera.ProcessKeyboard(FORWARD, deltaTime);
