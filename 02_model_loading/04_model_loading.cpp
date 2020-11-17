@@ -90,9 +90,9 @@ int main()
    //Model ourModel(FileSystem::getPath("data/cyborg/cyborg.obj"));
     //Model ourModel(FileSystem::getPath("data/nanosuit/nanosuit.obj"));
     //Model ourModel(FileSystem::getPath("data/planet/planet.obj"));
-    // Model ourModel(FileSystem::getPath("data/Esquilo/Esquilo.obj"));
-     Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
-   // Model ourModel(FileSystem::getPath("data/ConchaClean/ConchaClean.obj"));
+    // Model ourModel(FileSystem::getPath("data/EsquiloNormal/EsquiloNormal.obj"));
+    // Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
+    Model ourModel(FileSystem::getPath("data/ConchaNormal/ConchaNormal.obj"));
 
 
     
@@ -134,12 +134,13 @@ int main()
         model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // translate it down so it's at the center of the scene
         model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
         ourShader.setMat4("model", model);
-        glm::vec4 color = glm::vec4(glm::vec3(0.8f, 0.8f, 0.8f),1.0f);
-        ourShader.setVec4("matColor", color);
+        glm::vec3 color = glm::vec3(0.8f, 0.8f, 0.8f);
+        ourShader.setVec3("matColor", color);
         ourShader.setFloat("lerpIntensity", ColorLerp);
+        ourShader.setVec3("viewPos", camera.Position);
 
         //ourShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-        ourShader.setVec4("lightColor", 1.0f, 1.0f, 1.0f, 1.0f);
+        ourShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
         
         glm::vec3 lightPos(-1.0f, -2.75f, 0.0f);
 

@@ -1,0 +1,39 @@
+#version 330 core
+
+out vec4 FragColor;
+
+in vec2 TexCoords;
+
+in vec3 Normal;  
+in vec3 FragPos;  
+
+uniform vec3 lightPos; 
+uniform vec4 lightColor;
+
+uniform sampler2D texture_diffuse1;
+
+uniform vec4 matColor;
+
+uniform float lerpIntensity;
+
+void main()
+{   
+ 
+     float ambientStrength = 0.5;
+     vec4 ambient = ambientStrength * lightColor;
+    
+     // diffuse 
+     vec3 norm = normalize(Normal);
+     vec3 lightDir = normalize(lightPos - FragPos);
+     float diff = max(dot(norm, lightDir), 0.0);
+     vec4 diffuse = diff * lightColor; //(r,g,b)
+
+     // Or, linear scale from one color to another
+     vec4 colorA = texture2D(texture_diffuse1, TexCoords);
+     vec4 colorB = matColor;
+    
+     vec4 color = mix(colorA, colorB, lerpIntensity);
+
+     vec4 resultLight = (ambient + diffuse) * color;
+     FragColor = resultLight;
+}
