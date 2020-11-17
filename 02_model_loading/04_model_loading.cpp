@@ -90,9 +90,10 @@ int main()
    //Model ourModel(FileSystem::getPath("data/cyborg/cyborg.obj"));
     //Model ourModel(FileSystem::getPath("data/nanosuit/nanosuit.obj"));
     //Model ourModel(FileSystem::getPath("data/planet/planet.obj"));
-    // Model ourModel(FileSystem::getPath("data/EsquiloNormal/EsquiloNormal.obj"));
+     Model ourModel(FileSystem::getPath("data/EsquiloNormal/EsquiloNormal.obj"));
     // Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
-    Model ourModel(FileSystem::getPath("data/ConchaNormal/ConchaNormal.obj"));
+    //Model ourModel(FileSystem::getPath("data/ConchaNormal/ConchaNormal.obj"));
+   // Model ourModel(FileSystem::getPath("data/TerrenoNormal/parqueNormal.obj"));
 
 
     
@@ -142,7 +143,7 @@ int main()
         //ourShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
         ourShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
         
-        glm::vec3 lightPos(-1.0f, -2.75f, 0.0f);
+        glm::vec3 lightPos(-5.0f, -5.75f, 0.0f);
 
         ourShader.setVec3("lightPos", lightPos);
 
