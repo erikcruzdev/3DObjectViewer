@@ -1,1 +1,1 @@
-data/ConchaNormal/ConchaNormal.obj
+data/TerrenoNormal/parqueNormal.obj
