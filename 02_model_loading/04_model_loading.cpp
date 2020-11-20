@@ -8,6 +8,11 @@
 #include <camera.h>
 #include <model.h>
 
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -18,6 +23,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
+std::string openAndReadFile(const char* filePath);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -85,6 +91,8 @@ int main()
     // -------------------------
     Shader ourShader("1.model_loading.vs", "1.model_loading.fs");
 
+    std::string content = openAndReadFile("currentFile.txt");
+    std::cout << "Path file Content is: " << content << endl;
     // load models
     // -----------
    //Model ourModel(FileSystem::getPath("data/cyborg/cyborg.obj"));
@@ -92,12 +100,10 @@ int main()
     //Model ourModel(FileSystem::getPath("data/planet/planet.obj"));
     // Model ourModel(FileSystem::getPath("data/EsquiloNormal/EsquiloNormal.obj"));
      //Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
-    Model ourModel(FileSystem::getPath("data/ConchaNormal/ConchaNormal.obj"));
+    Model ourModel(FileSystem::getPath(content));
    // Model ourModel(FileSystem::getPath("data/TerrenoNormal/parqueNormal.obj"));
    //  Model ourModel(FileSystem::getPath("data/TenisNormal/TenisNormal.obj"));
 
-
-    
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -161,6 +167,27 @@ int main()
     // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
+}
+
+std::string openAndReadFile(const char* filePath) {
+    std::string content = "";
+    std::ifstream file;
+
+    file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+    try {
+        file.open(filePath);
+        std::stringstream filestream;
+        filestream << file.rdbuf();
+
+        file.close();
+        content = filestream.str();
+    }
+    catch (std::ifstream::failure e)
+    {
+        std::cout << "CANNOT READ PATH FILE" << std::endl;
+    }
+    return content;
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly

@@ -1,4 +1,4 @@
-newmtl parqueNormal:Material
+newmtl parque:Material
 illum 4
 Kd 0.80 0.80 0.80
 Ka 1.00 1.00 1.00
@@ -6,7 +6,7 @@ Tf 1.00 1.00 1.00
 Ni 1.45
 Ks 0.50 0.50 0.50
 Ns 324.00
-newmtl parqueNormal:Material_001
+newmtl parque:Material_001
 illum 4
 Kd 0.80 0.31 0.03
 Ka 1.00 1.00 1.00
@@ -14,12 +14,12 @@ Tf 1.00 1.00 1.00
 Ni 1.45
 Ks 0.50 0.50 0.50
 Ns 225.00
-newmtl parqueNormal:rastMat
+newmtl parque:rastMat
 illum 4
 Kd 0.00 0.00 0.00
 Ka 1.00 1.00 1.00
 Tf 1.00 1.00 1.00
-map_Kd GOOGLE_SAT_WM_TEX.png
+map_Kd GOOGLE_SAT_WM.png
 bump normal.png
 Ni 1.45
 Ks 0.05 0.05 0.05

@@ -1,0 +1,5 @@
+data/ConchaNormal/ConchaNormal.obj
+data/TenisNormal/TenisNormal.obj
+data/TerrenoNormal/parqueNormal.obj
+data/PandaNormal/PandaNormal.obj
+data/EsquiloNormal/EsquiloNormal.obj
