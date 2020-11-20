@@ -3,3 +3,7 @@ data/TenisNormal/TenisNormal.obj
 data/TerrenoNormal/parqueNormal.obj
 data/PandaNormal/PandaNormal.obj
 data/EsquiloNormal/EsquiloNormal.obj
+data/cyborg/cyborg.obj
+data/nanosuit/nanosuit.obj
+data/planet/planet.obj
+data/ConchaHigh/ConchaHigh.obj

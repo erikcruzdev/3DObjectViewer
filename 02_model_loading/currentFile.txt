@@ -1,1 +1,1 @@
-data/TerrenoNormal/parqueNormal.obj
+data/PandaNormal/PandaNormal.obj
