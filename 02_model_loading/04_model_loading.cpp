@@ -90,11 +90,11 @@ int main()
    //Model ourModel(FileSystem::getPath("data/cyborg/cyborg.obj"));
     //Model ourModel(FileSystem::getPath("data/nanosuit/nanosuit.obj"));
     //Model ourModel(FileSystem::getPath("data/planet/planet.obj"));
-     //Model ourModel(FileSystem::getPath("data/EsquiloNormal/EsquiloNormal.obj"));
-    // Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
-    //Model ourModel(FileSystem::getPath("data/ConchaNormal/ConchaNormal.obj"));
+    // Model ourModel(FileSystem::getPath("data/EsquiloNormal/EsquiloNormal.obj"));
+     //Model ourModel(FileSystem::getPath("data/PandaNormal/PandaNormal.obj"));
+    Model ourModel(FileSystem::getPath("data/ConchaNormal/ConchaNormal.obj"));
    // Model ourModel(FileSystem::getPath("data/TerrenoNormal/parqueNormal.obj"));
-     Model ourModel(FileSystem::getPath("data/TenisNormal/TenisNormal.obj"));
+   //  Model ourModel(FileSystem::getPath("data/TenisNormal/TenisNormal.obj"));
 
 
     
