@@ -1,1 +1,1 @@
-data/PandaNormal/PandaNormal.obj
+data/EsquiloNormal/EsquiloNormal.obj
