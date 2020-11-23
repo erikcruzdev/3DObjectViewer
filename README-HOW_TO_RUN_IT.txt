@@ -10,6 +10,9 @@ Different paths are available on "file.txt" doc, you can copy and paste one of t
 If you are running the .exe file, change the currentFile.txt at: \TrabalhoGBRepository\x64\Debug
 If you are compiling from Visual studio, change the "currentFile.txt" at path: TrabalhoGBRepository\02_model_loading
 
+
+To toggle the texture to a base color, Press "M".
+
 ___________________________PORTUGUÊS______________________________________________________________________________________
 
 Para abrir modelos diferentes você pode editar o arquivo "currentFile.txt" e adicionar um caminho com um obj: 
@@ -21,3 +24,5 @@ Caminhos de objetos diferentes estão no arquivo "file.txt", você pode copiar e
 
 Se você está rodando o .exe diretamente, mude o arquivo "currentFile.txt" no caminho: \TrabalhoGBRepository\x64\Debug
 Se você está compilando o projeto do Visual Studio, mude o arquivo "currentFile.txt" no caminho: TrabalhoGBRepository\02_model_loading
+
+Para habilitar e desabilitar a textura, aperte a tecla "M".
